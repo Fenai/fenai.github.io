@@ -122,12 +122,18 @@ header {
 	color: black;
 }
 
-/* Nurkuisa start */
+@media screen and (min-width: 320px) and (max-width: 767px) { 
+	.register_header {
+		font-size: 13px;
+	}
+	.buttons {
+		flex-wrap: wrap;
+	}
 
-.validation_alert_block {
-	border: 1px solid red;
-    border-radius: var(--input_border_radius);
-    padding: 4px;
+	.button {
+		width: 100%;
+	}
+	.buttons p {
+		margin-left: 0;
+	}
 }
-
-/* Nurkuisa end */
