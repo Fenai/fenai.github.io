@@ -60,9 +60,9 @@ function checkPassword(uPassword) {
 
 function checkPassConfirmation(uPassConfirmation, uPassword) {
   return (
-    uPassConfirmation.value == uPassword.value &&
-    uPassword.value.length >= 6 &&
-    uPassConfirmation.value.length >= 6
+    uPassConfirmation.value.trim() == uPassword.value.trim() &&
+    uPassword.value.trim().length >= 6 &&
+    uPassConfirmation.value.trim().length >= 6
   );
 }
 
@@ -75,7 +75,7 @@ function generateError(errorText) {
   return errorMsg;
 }
 
-// checks parent elem for existens of error msg and deletes it
+// checks parent elem for the existence of error msg and deletes it
 function deleteError(elem) {
   let errorCheck = elem.parentElement.querySelector("p");
   if (errorCheck != null) {
@@ -85,12 +85,13 @@ function deleteError(elem) {
 
 // Registration validation
 function validate() {
-  let u_name, u_email, u_password, u_repeatPass;
-  u_name = 0;
-  u_email = 0;
-  u_password = 0;
-  u_repeatPass = 0;
+  let u_name = 0,
+    u_email = 0,
+    u_password = 0,
+    u_repeatPass = 0;
 
+  let password2 = password.value.trim();
+  let repeatPass2 = repeatPass.value.trim();
   // let lowercaseCharacter = /[a-z]/g;
   let uppercaseCharacter = /[A-Z]/g;
   let numbers = /[0-9]/g;
@@ -120,20 +121,19 @@ function validate() {
   if (checkEmail(email) && email.value.trim().length > 0) {
     email.style.borderColor = "green";
     u_email = 1;
-  } else if (!checkEmail(email)) {
+  } else if (email.value.trim().length > 0) {
     deleteError(email);
     email.parentElement.appendChild(generateError("*Invalid email"));
     email.style.borderColor = "red";
   }
 
   if (checkPassword(password)) {
-    password.style.borderColor = "green";
     u_password = 1;
     if (checkPassConfirmation(repeatPass, password)) {
       password.style.borderColor = "green";
       repeatPass.style.borderColor = "green";
       u_repeatPass = 1;
-    } else if (password.value.trim() != repeatPass.value.trim()) {
+    } else if (password2 != repeatPass2) {
       deleteError(repeatPass);
       repeatPass.parentElement.appendChild(
         generateError("*Password does not match")
@@ -145,28 +145,19 @@ function validate() {
     password.style.borderColor = "red";
     repeatPass.style.borderColor = "red";
   }
-  if (
-    !uppercaseCharacter.test(password.value.trim()) &&
-    password.value.trim().length > 0
-  ) {
+  if (!uppercaseCharacter.test(password2) && password2.length > 0) {
     deleteError(password);
     password.parentElement.appendChild(
       generateError("*Password must contain at least one Uppercase character!")
     );
   }
-  if (
-    !numbers.test(password.value.trim()) &&
-    password.value.trim().length > 0
-  ) {
+  if (!numbers.test(password2) && password2.length > 0) {
     deleteError(password);
     password.parentElement.appendChild(
       generateError("*Password must contain at least one number!")
     );
   }
-  if (
-    !specialCharacter.test(password.value.trim()) &&
-    password.value.trim().length > 0
-  ) {
+  if (!specialCharacter.test(password2) && password2.length > 0) {
     deleteError(password);
     password.parentElement.appendChild(
       generateError("*Password must contain at least one special character")
