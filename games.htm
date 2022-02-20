@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MobApps - website with good and useful apps</title>
+  <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2971/2971416.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script defer src="https://kit.fontawesome.com/3e37c3165c.js" crossorigin="anonymous"></script>
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script defer src="Scripts/main.js"></script>
+  <script defer src="Scripts/user.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-light">
+    <div class="header-width" style="display: flex;">
+      <button id="sidebar_button">
+        <svg id="Слой_1"  data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 15"><defs><style>.cls-1{fill:#fff;}</style></defs><rect class="cls-1" x="0.5" y="0.5" width="17" height="1"/><polygon points="18 0 0 0 0 2 18 2 18 0 18 0"/><rect class="cls-1" x="0.5" y="7" width="17" height="1"/><polygon points="18 6.5 0 6.5 0 8.5 18 8.5 18 6.5 18 6.5"/><rect class="cls-1" x="0.5" y="13.5" width="17" height="1"/><polygon points="18 13 0 13 0 15 18 15 18 13 18 13"/></svg>
+      </button>
+      <a class="navbar-brand nav-link px-2" href="index.htm"><b>MobApps</b></a>
+    </div>
+    <div class="search-width">
+      <form class="form-inline">
+        <input class="form-control w-100" style="background-color: #d9d9d969" type="text" name="" placeholder="Search for apps" />
+      </form>
+    </div>
+    <div class="d-flex">
+      <a class="nav_bar_button" href="login.htm">Log in</a>
+      <a class="nav_bar_button" href="registration.htm">Register</a>
+    </div>
+  </nav>
+  <hr style="margin: 1px">
+  <main>
+    <audio id="audio" controls style="display:none">
+      <source src="https://d9olupt5igjta.cloudfront.net/samples/sample_files/22056/759e935bba3067d997b88e65cb76dbc17517ecbc/mp3/_DTM_SynthStab_018_C.mp3?1541393920" type="audio/mpeg">
+    </audio>
+    <div class="main">
+      <div class="d-flex">
+        <!-- Left column -->
+        <div id="left-column" class="pl-4">
+          <div class="text-uppercase pt-3">
+            <!-- <p class="font-weight-bold"> <a style="color: black" href="index.htm" class="text-decoration-none">homepage</a></p> -->
+            <p class="font-weight-bold"> <a style="color: black" href="" class="text-decoration-none">filters</a></p>
+          </div>
+          <div class="m-0 not_ready">
+            <button class="group_btn">Platform</button>
+            <a class="group_name" href=""><i class="fa fa-windows fa-s"></i> Windows</a>
+            <a class="group_name" href=""><i class="fa fa-apple fa-s"></i> macOS</a>
+            <a class="group_name" href=""><i class="fa fa-linux fa-s"></i> Linux</a>
+            <a class="group_name" href=""><i class="fa fa-android fa-s"></i> Android</a>
+            <a class="group_name" href=""><i class="fa fa-apple fa-s"></i> iOS</a>
+          </div>
+          <div class="m-0">
+            <button class=" group_btn"> <a style="color: black" href="index.htm" class="text-decoration-none">Genre</a></button>
+            <a class="group_name" href="games.htm"><i class="fa fa-gamepad fa-s"> </i> Games</a>
+            <a class="group_name" href="photo.htm"><i class="fa fa-camera fa-s"></i> Photo</a>
+            <a class="group_name" href="language.htm"><i class="fa fa-globe fa-s"></i> Language apps</a>
+            <a class="group_name" href="social.htm"><i class="fa fa-users fa-s"> </i> Social apps</a>
+            <a class="group_name" href="time.htm"><i class="fa fa-calendar-check fa-s"></i> Time-management</a>
+          </div>
+        </div>
+        <section class="w-100 bg-white">
+          <div class="rc_header">
+            <div class="rc_sort_options_box">
+              <ul class="sorts pt-3 pl-0 d-flex">
+                <li>Sort by:</li> 
+                <li><a class="active" href="">Popular</a></li>
+                <li><a class="active" href="">New</a></li>
+                <li><a class="active" href="">Top sellers</a></li>
+                <li><a class="active" href="">Top rated</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="rc_main">
+            <div class="browse_content">
+              <div class="card">
+                <a href="https://play.google.com/store/apps/details?id=com.rstgames.durak&hl=ru&gl=US">
+                  <div class="card_image" style="
+                    background-image: url(https://www.meme-arsenal.com/memes/6392547155d74bcd5944447c8f3133a3.jpg);
+                  "></div>
+                </a>
+                <div class="card_info">
+                <h5 class="card-title mt-1 ml-1 d-flex">Дурак</h5>
+                  <h6 class="text-muted ml-1">R-Soft LLC</h6>
+                  <div class="card_platform ml-1">Android / iOS</div>
+                </div>
+              </div>
+              <div class="card">
+                <a href="https://play.google.com/store/apps/details?id=com.dantegraff&hl=ru&gl=US">
+                  <div class="card_image" style="
+                    background-image: url(https://play-lh.googleusercontent.com/oh2ewDdmFgGFJ0uRxs2248t_2aBmpOs4hgwn8rLY6urEUZFS9pNlNn-czQAgBf-ZBUM=s180-rw);
+                  "></div>
+                </a>
+                <div class="card_info">
+                <h5 class="card-title mt-1 ml-1 d-flex">Потерянный</h5>
+                  <h6 class="text-muted ml-1">Talan Online</h6>
+                  <div class="card_platform ml-1">Android</div>
+                </div>
+              </div>
+              <div class="card">
+                <a href="https://play.google.com/store/apps/details?id=com.sensedevil.VTT&hl=ru&gl=US">
+                  <div class="card_image" style="
+                    background-image: url(https://play-lh.googleusercontent.com/XXPdvb8gF9H8kvgH1jYPwazhI1fVkROlGg7rRRyCf_NqilSXjrHZ2uA35YXB-ogBqw=s180-rw);
+                  "></div>
+                </a>
+                <div class="card_info">
+                <h5 class="card-title mt-1 ml-1 d-flex">Virtual Table Tennis</h5>
+                  <h6 class="text-muted ml-1">SenseDevil Games</h6>
+                  <div class="card_platform ml-1">Android \ iOS</div>
+                </div>
+              </div>
+              <div class="card">
+                <a href="https://play.google.com/store/apps/details?id=fishrungames.escapetomoscow&hl=en_US&gl=US">
+                  <div class="card_image" style="
+                    background-image: url(https://play-lh.googleusercontent.com/xOuvZ44aCFIndJAE81qpcGGJL-gGWhlDn0ALbFOYZzZcJW2JSnoakQ2H3_MArYA6X9Zk=s180-rw);
+                  "></div>
+                </a>
+                <div class="card_info">
+                <h5 class="card-title mt-1 ml-1 d-flex">Escape to Moscow</h5>
+                  <h6 class="text-muted ml-1">Fish Run Games</h6>
+                  <div class="card_platform ml-1">Android \ iOS</div>
+                </div>
+              </div>
+              <div class="card">
+                <a href="https://play.google.com/store/apps/details?id=com.ChillyRoom.DungeonShooter&hl=ru&gl=US">
+                  <div class="card_image" style="
+                    background-image: url(https://play-lh.googleusercontent.com/MEhAvukp_XJ5k63uF4X2d6757gCv6ioAkfg2qtWPWUvdp8QVLk2ZeX0UTE8aJtO49Myy=s180-rw);
+                  "></div>
+                </a>
+                <div class="card_info">
+                  <h5 class="card-title mt-1 ml-1 d-flex">sSoul Knight</h5>
+                  <h6 class="text-muted ml-1">ChillyRoom</h6>
+                  <div class="card_platform ml-1">Android \ iOS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
