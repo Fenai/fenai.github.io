@@ -15,12 +15,12 @@ if (browserScreen <= 1024) {
     if (auth != null || currentAccount == null) {
       offcanvasBody[0].parentElement.insertBefore(auth, offcanvasBody[0]);
     }
-    userProfile.remove();
+    userProfile[0].remove();
     if (navbarAuth != null && currentAccount == null) {
       navbarAuth.remove();
     }
   } else {
-    auth.remove();
+    if (auth != null) auth.remove();
     if (currentAccount != null) {
       navbar.appendChild(userProfile[0]);
     }
@@ -43,7 +43,7 @@ window.onresize = function () {
     leftColumn.style.display = "none";
     headerLogo.insertBefore(sidebar, headerLogo.firstChild);
     if (browserScreen <= 500) {
-      userProfile.remove();
+      userProfile[0].remove();
       if (auth != null || currentAccount == null) {
         offcanvasBody[0].parentElement.insertBefore(auth, offcanvasBody[0]);
       }
@@ -51,7 +51,7 @@ window.onresize = function () {
         navbarAuth.remove();
       }
     } else {
-      auth.remove();
+      if (auth != null) auth.remove();
       if (currentAccount != null) {
         navbar.appendChild(userProfile[0]);
       }

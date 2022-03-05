@@ -3,7 +3,7 @@ const userProfile = $("#user_profile");
 const offcanvasUserProfile = $("#offcanvas-user_profile");
 
 // get all data from localStorage
-let accounts = [];
+let currentAccount = [];
 currentAccount = JSON.parse(localStorage.getItem("currentUser"));
 
 if (currentAccount != null) {
