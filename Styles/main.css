@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
   --border_color: #cfd0d7;
   --card_text_color: #8f8f8f;
   --main_border_radius: 4px;
@@ -25,11 +24,12 @@ header {
 
 .nav_bar_button {
   height: 30px;
-  margin-left: 15px;
+  margin-left: 1rem;
   padding: 0 15px;
   display: flex;
   white-space: nowrap;
   align-items: center;
+  text-decoration: none;
   border: 2px solid #d7d7d7;
   font-weight: bolder;
   color: black;
@@ -47,6 +47,52 @@ header {
   background-color: #ffc252;
   border-radius: 5px;
   text-decoration: none;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+}
+
+#user_profile {
+  margin-left: 1rem;
+}
+
+#auth {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offcanvas .nav_bar_button {
+  height: 30px;
+  margin: 0.5rem 1.5rem;
+  margin-bottom: 0;
+  padding: 0 15px;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid #d7d7d7;
+  font-weight: bolder;
+  color: black;
+  border-radius: var(--main_border_radius);
+  text-align: center;
+  justify-content: center;
+}
+
+.offcanvas .nav_bar_button:hover {
+  border-color: #ffc252;
+  color: #ffc252;
+  text-decoration: none;
+}
+.offcanvas-body {
+  white-space: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.offcanvas-body::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
 .group_btn {
@@ -125,7 +171,7 @@ header {
 
 .card {
   width: 230px;
-  margin-right: 10px;
+  margin-right: 1rem;
   margin-bottom: 20px;
   overflow: hidden;
   border-radius: var(--main_border_radius);
@@ -266,10 +312,15 @@ header {
 
 .navbar {
   flex-wrap: nowrap!important;
+  padding: 0 1rem;
 }
 
 .search-width {
   width: 50%;
+}
+
+a.btn img {
+  width: 1rem;
 }
 
 #sidebar_button {
@@ -282,13 +333,17 @@ header {
   align-items: center;
 }
 
-#left-column {
-  display: block;
-  background-color: white;
+.offcanvas-header {
+  padding: 1rem 2rem;
 }
 
-.hide {
-  display: none;
+.offcanvas .header-devider {
+  margin: 0;
+}
+
+#left-column {
+  margin-left: 1.5rem;
+  background-color: white;
 }
 
 /* to center the icons */
@@ -304,9 +359,9 @@ header {
 /* for netbooks  */
 @media screen and (min-width: 1024px) and (max-width: 1200px){
   .main_browse {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
+    display: flex;
+    /* grid-template-columns: auto auto auto;
+    grid-gap: 10px; */
   }
 
   .card {
@@ -323,26 +378,43 @@ header {
     width: 100%;
   }
 
+  .offcanvas {
+    width: 350px!important;
+  }
+
+  .nav-link {
+    padding: 0.325rem 1rem!important;
+    color: #000000!important;
+  }
+
+  .nav-link:hover {
+    color: #fff!important;
+  }
+
+  #offcanvas-user_profile {
+    margin-top: 1rem;
+  }
+
   #left-column {
     display: none;
   }
 
   .main_browse {
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    /* grid-template-columns: auto auto auto; */
     padding: 0.5rem 1rem;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .browse_content {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    /* grid-template-columns: auto auto auto auto; */
     padding: 0.5rem 1rem;
-    justify-content: space-between;
+    justify-content: flex-start
   }
 
   .card {
-    max-width: 195px;
+    max-width: 185px;
   }
 
   .card_image {
@@ -357,13 +429,30 @@ header {
     flex-wrap: nowrap!important;
   }
 
+  #sidebar_button {
+    margin-right: 1rem;
+  }
   .search-width {
     width: 100%!important;
   }
 
   .form-control {
+    margin: 0.5rem 0;
     height: 30px!important;
     border-radius: 0!important;
+  }
+
+  .offcanvas {
+    width: 320px!important;
+  }
+
+  .nav-link {
+    padding: 0.325rem 1rem!important;
+    color: #000000!important;
+  }
+
+  .nav-link:hover {
+    color: #fff!important;
   }
 
   #left-column {

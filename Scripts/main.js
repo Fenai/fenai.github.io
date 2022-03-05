@@ -1,46 +1,74 @@
+const navbar = document.querySelector("#navbar");
+const navbarAuth = document.getElementById("navbar-auth");
 const leftColumn = document.getElementById("left-column");
-const sideBarButton = document.getElementById("sidebar_button");
-const searchInput = document.getElementsByClassName("w-25");
-const filterWord = document.getElementsByClassName("text-uppercase");
-let isSideBarHidden = false;
+const sidebar = document.getElementById("sidebar");
+const headerLogo = document.getElementById("header-logo");
+const logo = document.getElementById("logo");
+const offcanvasBody = document.getElementsByClassName("offcanvas-body");
+const auth = document.getElementById("auth");
+
+let browserScreen = document.body.offsetWidth;
+if (browserScreen <= 1024) {
+  leftColumn.style.display = "none";
+  headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+  if (browserScreen <= 500) {
+    if (auth != null || currentAccount == null) {
+      offcanvasBody[0].parentElement.insertBefore(auth, offcanvasBody[0]);
+    }
+    userProfile.remove();
+    if (navbarAuth != null && currentAccount == null) {
+      navbarAuth.remove();
+    }
+  } else {
+    auth.remove();
+    if (currentAccount != null) {
+      navbar.appendChild(userProfile[0]);
+    }
+    if (navbarAuth != null && currentAccount == null) {
+      navbar.appendChild(navbarAuth);
+    }
+  }
+} else {
+  sidebar.remove();
+  if (currentAccount != null) {
+    navbar.appendChild(userProfile[0]);
+  }
+  leftColumn.style.display = "block";
+  leftColumn.style.position = "relative";
+}
 
 window.onresize = function () {
   let browserScreen = document.body.offsetWidth;
   if (browserScreen <= 1024) {
     leftColumn.style.display = "none";
-    isSideBarHidden = true;
+    headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+    if (browserScreen <= 500) {
+      userProfile.remove();
+      if (auth != null || currentAccount == null) {
+        offcanvasBody[0].parentElement.insertBefore(auth, offcanvasBody[0]);
+      }
+      if (navbarAuth != null) {
+        navbarAuth.remove();
+      }
+    } else {
+      auth.remove();
+      if (currentAccount != null) {
+        navbar.appendChild(userProfile[0]);
+      }
+      if (navbarAuth != null && currentAccount == null) {
+        navbar.appendChild(navbarAuth);
+      }
+    }
   } else {
+    sidebar.remove();
+    if (currentAccount != null) {
+      navbar.appendChild(userProfile[0]);
+    }
     leftColumn.style.display = "block";
     leftColumn.style.position = "relative";
-    isSideBarHidden = false;
   }
 };
 
-sideBarButton.addEventListener("click", function () {
-  let browserScreen = document.body.offsetWidth;
-  if (browserScreen >= 1024) {
-    if (isSideBarHidden) {
-      leftColumn.style.display = "none";
-      isSideBarHidden = false;
-    } else {
-      leftColumn.style.display = "block";
-      isSideBarHidden = true;
-    }
-  } else if (browserScreen < 1024) {
-    if (isSideBarHidden) {
-      leftColumn.style.display = "none";
-      isSideBarHidden = false;
-    } else {
-      leftColumn.style.display = "block";
-      leftColumn.style.position = "absolute";
-      leftColumn.style.zIndex = "9999";
-      leftColumn.style.height = "calc(100vh - 60px)";
-      isSideBarHidden = true;
-    }
-  }
-});
-
-// Adilhan start :)
 document.querySelector(".sorts").addEventListener(
   "click",
   function () {
@@ -64,5 +92,3 @@ document.querySelector(".not_ready").addEventListener(
   },
   false
 );
-
-// Adilhan end :)
