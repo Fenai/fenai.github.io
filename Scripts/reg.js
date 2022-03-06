@@ -38,6 +38,7 @@ addMultipleEventListeners(
 
 let accounts = [];
 accounts = JSON.parse(localStorage.getItem("accounts"));
+
 function checkUsername(uName) {
   return uName.value.trim().length > 0;
 }

@@ -9,8 +9,12 @@ const auth = document.getElementById("auth");
 
 let browserScreen = document.body.offsetWidth;
 if (browserScreen <= 1024) {
-  leftColumn.style.display = "none";
-  headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+  if (leftColumn != null) {
+    leftColumn.style.display = "none";
+  }
+  if (headerLogo != null && sidebar != null) {
+    headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+  }
   if (browserScreen <= 500) {
     if (auth != null || currentAccount == null) {
       offcanvasBody[0].parentElement.insertBefore(auth, offcanvasBody[0]);
@@ -29,19 +33,27 @@ if (browserScreen <= 1024) {
     }
   }
 } else {
-  sidebar.remove();
+  if (sidebar != null) {
+    sidebar.remove();
+  }
   if (currentAccount != null) {
     navbar.appendChild(userProfile[0]);
   }
-  leftColumn.style.display = "block";
-  leftColumn.style.position = "relative";
+  if (leftColumn != null) {
+    leftColumn.style.display = "block";
+    leftColumn.style.position = "relative";
+  }
 }
 
 window.onresize = function () {
   let browserScreen = document.body.offsetWidth;
   if (browserScreen <= 1024) {
-    leftColumn.style.display = "none";
-    headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+    if (leftColumn != null) {
+      leftColumn.style.display = "none";
+    }
+    if (headerLogo != null && sidebar != null) {
+      headerLogo.insertBefore(sidebar, headerLogo.firstChild);
+    }
     if (browserScreen <= 500) {
       userProfile[0].remove();
       if (auth != null || currentAccount == null) {
@@ -60,22 +72,28 @@ window.onresize = function () {
       }
     }
   } else {
-    sidebar.remove();
+    if (sidebar != null) {
+      sidebar.remove();
+    }
     if (currentAccount != null) {
       navbar.appendChild(userProfile[0]);
     }
-    leftColumn.style.display = "block";
-    leftColumn.style.position = "relative";
+    if (leftColumn != null) {
+      leftColumn.style.display = "block";
+      leftColumn.style.position = "relative";
+    }
   }
 };
 
-document.querySelector(".sorts").addEventListener(
-  "click",
-  function () {
-    alert("This function is not ready yet");
-  },
-  false
-);
+if (document.querySelector(".sorts")) {
+  document.querySelector(".sorts").addEventListener(
+    "click",
+    function () {
+      alert("This function is not ready yet");
+    },
+    false
+  );
+}
 
 window.addEventListener("keydown", checkKeyPress, false);
 
@@ -85,10 +103,12 @@ function checkKeyPress(key) {
   }
 }
 
-document.querySelector(".not_ready").addEventListener(
-  "click",
-  function () {
-    alert("This function is not ready yet");
-  },
-  false
-);
+if (document.querySelector(".not_ready")) {
+  document.querySelector(".not_ready").addEventListener(
+    "click",
+    function () {
+      alert("This function is not ready yet");
+    },
+    false
+  );
+}

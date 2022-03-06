@@ -11,6 +11,7 @@
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script defer src="Scripts/user.js"></script>
   <script defer src="Scripts/main.js"></script>
+  <script defer src="Scripts/addToWishlist.js"></script>
 </head>
 <body>
   <nav id="navbar" class="navbar navbar-light">
@@ -56,7 +57,7 @@
                   <li><a class="dropdown-item group_name" href="photo.htm"><i class="fa fa-camera fa-s"></i>Photo</a></li>
                   <li><a class="dropdown-item group_name" href="language.htm"><i class="fa fa-globe fa-s"></i>Language apps</a></li>
                   <li><a class="dropdown-item group_name" href="social.htm"><i class="fa fa-users fa-s"> </i>Social apps</a></li>
-                  <li><a class="dropdown-item group_name" href="time.htm"><i class="fa fa-calendar-check fa-s"></i>Time-management</a></li>
+                  <li><a class="dropdown-item group_name active-genre" href="time.htm"><i class="fa fa-calendar-check fa-s"></i>Time-management</a></li>
                 </ul>
               </li>
             </ul>
@@ -66,9 +67,10 @@
                 <i class="fas fa-user rounded-circle me-2" aria-hidden="true" style="border-radius: 4px; background: black; padding: 5px; color: rgb(255, 194, 82);"></i>
                 <strong id="offcanvas-user_name">Someone</strong>
               </a>
-              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
+              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item logout" href="#">Sign out</a></li>
               </ul>
@@ -87,13 +89,13 @@
     <!-- user -->
     <div id="user_profile" class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
         <i class="fas fa-user rounded-circle me-2" aria-hidden="true" style="border-radius: 4px; background: black; padding: 5px; color: rgb(255, 194, 82);"></i>
         <strong id="user_name">Someone</strong>
       </a>
-      <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="dropdownUser2" style="">
+      <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="dropdownUser2">
         <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item logout" href="#">Sign out</a></li>
       </ul>
@@ -130,7 +132,7 @@
             <a class="group_name" href="photo.htm"><i class="fa fa-camera fa-s"></i> Photo</a>
             <a class="group_name" href="language.htm"><i class="fa fa-globe fa-s"></i> Language apps</a>
             <a class="group_name" href="social.htm"><i class="fa fa-users fa-s"> </i> Social apps</a>
-            <a class="group_name" href="time.htm"><i class="fa fa-calendar-check fa-s"></i> Time-management</a>
+            <a class="group_name active-genre" href="time.htm"><i class="fa fa-calendar-check fa-s"></i> Time-management</a>
           </div>
         </div>
         <section class="w-100 bg-white">
@@ -148,11 +150,16 @@
           <div class="rc_main">
             <div class="browse_content">
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=com.appgenix.bizcal&hl=ru&gl=ru">
-                  <div class="card_image" style="
-                        background-image: url(https://play-lh.googleusercontent.com/7YITj2_SLEEdeBegUyb_qu1TQYOTRsgd5zoiZ4wIJpGb9XZHUtl59pN9Xk3gawUlqBk=s180-rw);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=com.appgenix.bizcal&hl=ru&gl=ru">
+                    <div class="card_image" style="
+                          background-image: url(https://play-lh.googleusercontent.com/7YITj2_SLEEdeBegUyb_qu1TQYOTRsgd5zoiZ4wIJpGb9XZHUtl59pN9Xk3gawUlqBk=s180-rw);
+                        "></div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">Business Calendar 2</h5>
                   <h6 class="text-muted ml-1">Appgenix Software</h6>
@@ -160,11 +167,16 @@
                 </div>
               </div>
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=com.time_management_studio.my_daily_planner&hl=ru&gl=US">
-                  <div class="card_image" style="
-                        background-image: url(https://play-lh.googleusercontent.com/_lw0ZOVNL1S78NjDiQHhocYTAQZrfwy911XUEuHPZe3AIkYjSNuN0QggnWFgFoetQ9c=s180-rw);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=com.time_management_studio.my_daily_planner&hl=ru&gl=US">
+                    <div class="card_image" style="
+                          background-image: url(https://play-lh.googleusercontent.com/_lw0ZOVNL1S78NjDiQHhocYTAQZrfwy911XUEuHPZe3AIkYjSNuN0QggnWFgFoetQ9c=s180-rw);
+                        "></div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">My Daily Planner</h5>
                   <h6 class="text-muted ml-1">Time Management Studio</h6>
@@ -172,18 +184,22 @@
                 </div>
               </div>
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=com.pomodrone.app&hl=ru&gl=US">
-                  <div class="card_image" style="
-                        background-image: url(https://play-lh.googleusercontent.com/MmFSl0dEvPWnpChE4N1Xq5SB5J7zNBNIRxhrB1ouX4Ol2GIt469f2ek78PcEdTk03Q=s180-rw);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=com.pomodrone.app&hl=ru&gl=US">
+                    <div class="card_image" style="
+                          background-image: url(https://play-lh.googleusercontent.com/MmFSl0dEvPWnpChE4N1Xq5SB5J7zNBNIRxhrB1ouX4Ol2GIt469f2ek78PcEdTk03Q=s180-rw);
+                        "></div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">Pomodoro Timer</h5>
                   <h6 class="text-muted ml-1">AppFX</h6>
                   <div class="card_platform ml-1">Android</div>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -192,5 +208,4 @@
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -123,6 +123,13 @@ header {
   border-radius: 2px;
 }
 
+.active-genre {
+  background-color: var(--main_color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
 .right_column {
   width: 100%;
   background-color: #fff;
@@ -142,6 +149,7 @@ header {
 
 .sorts {
   list-style: none;
+  padding-left: 0;
 }
 
 .sorts li {
@@ -177,12 +185,43 @@ header {
   border-radius: var(--main_border_radius);
 }
 
+.card:hover .add-wishlist {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.card_head {
+  position: relative;
+  display: grid;
+}
+
 .card_image {
+  position: relative;
   min-width: 100px;
   max-width: 230px;
   height: 180px;
   background-position: center;
   background-size: cover;
+}
+
+.add-wishlist {
+  transition: opacity 250ms ease-in-out 0s;
+  opacity: 0;
+  width: 1.7rem;
+  position: absolute;
+  /* display: inline-flex;
+  justify-content: center; */
+  font-weight: 900;
+  padding: 2px;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.card_info {
+  padding: 0 0.5rem;
 }
 
 .card_info p {
@@ -420,6 +459,10 @@ a.btn img {
   .card_image {
     max-width: 100%;
   }
+
+  .add-wishlist {
+    opacity: 1;
+  }
 }
 
 /* for mobile phones */
@@ -496,10 +539,18 @@ a.btn img {
     flex-direction: row!important;
   }
 
-  .card_image {
-    min-width: 150px;
+  .card_head {
     margin-right: 10px;
   }
+
+  .card_image {
+    min-width: 150px;
+  }
+
+  .add-wishlist {
+    opacity: 1;
+  }
+
   .image_overlay {
     padding: 0 5px;
   }

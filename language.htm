@@ -11,6 +11,7 @@
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script defer src="Scripts/user.js"></script>
   <script defer src="Scripts/main.js"></script>
+  <script defer src="Scripts/addToWishlist.js"></script>
 </head>
 <body>
   <nav id="navbar" class="navbar navbar-light">
@@ -54,7 +55,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item group_name" href="games.htm"><i class="fa fa-gamepad fa-s"> </i>Games</a></li>
                   <li><a class="dropdown-item group_name" href="photo.htm"><i class="fa fa-camera fa-s"></i>Photo</a></li>
-                  <li><a class="dropdown-item group_name" href="language.htm"><i class="fa fa-globe fa-s"></i>Language apps</a></li>
+                  <li><a class="dropdown-item group_name active-genre" href="language.htm"><i class="fa fa-globe fa-s"></i>Language apps</a></li>
                   <li><a class="dropdown-item group_name" href="social.htm"><i class="fa fa-users fa-s"> </i>Social apps</a></li>
                   <li><a class="dropdown-item group_name" href="time.htm"><i class="fa fa-calendar-check fa-s"></i>Time-management</a></li>
                 </ul>
@@ -69,6 +70,7 @@
               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item logout" href="#">Sign out</a></li>
               </ul>
@@ -87,13 +89,13 @@
     <!-- user -->
     <div id="user_profile" class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
         <i class="fas fa-user rounded-circle me-2" aria-hidden="true" style="border-radius: 4px; background: black; padding: 5px; color: rgb(255, 194, 82);"></i>
         <strong id="user_name">Someone</strong>
       </a>
       <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="dropdownUser2" style="">
         <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item logout" href="#">Sign out</a></li>
       </ul>
@@ -128,7 +130,7 @@
             <button class=" group_btn"> <a style="color: black" href="index.htm" class="text-decoration-none">Genre</a></button>
             <a class="group_name" href="games.htm"><i class="fa fa-gamepad fa-s"> </i> Games</a>
             <a class="group_name" href="photo.htm"><i class="fa fa-camera fa-s"></i> Photo</a>
-            <a class="group_name" href="language.htm"><i class="fa fa-globe fa-s"></i> Language apps</a>
+            <a class="group_name active-genre" href="language.htm"><i class="fa fa-globe fa-s"></i> Language apps</a>
             <a class="group_name" href="social.htm"><i class="fa fa-users fa-s"> </i> Social apps</a>
             <a class="group_name" href="time.htm"><i class="fa fa-calendar-check fa-s"></i> Time-management</a>
           </div>
@@ -148,11 +150,16 @@
           <div class="rc_main">
             <div class="browse_content">
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=kz.sozdik.free&hl=ru&gl=ru">
-                  <div class="card_image" style="
-                        background-image: url(https://play-lh.googleusercontent.com/Bw_gXNZ7yPDCkixFTPIk7Hm5p3P35hY28SJnhnPAhawUs7maCvhplqJIQlgxCgpPqJoG=s180-rw);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=kz.sozdik.free&hl=ru&gl=ru">
+                    <div class="card_image" style="
+                          background-image: url(https://play-lh.googleusercontent.com/Bw_gXNZ7yPDCkixFTPIk7Hm5p3P35hY28SJnhnPAhawUs7maCvhplqJIQlgxCgpPqJoG=s180-rw);">
+                    </div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">sozdik.kz</h5>
                   <h6 class="text-muted ml-1">MobDev.kz</h6>
@@ -160,11 +167,16 @@
                 </div>
               </div>
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=ru.kartaslov.app&hl=ru&gl=ru">
-                  <div class="card_image" style="
-                        background-image: url(https://play-lh.googleusercontent.com/B4Tcwa6D-jsAVX3-Uykaku02TCV23Xala5v_8qiHXz74stzy-0M-nyDSrBjD6rDThrLb=s180-rw);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=ru.kartaslov.app&hl=ru&gl=ru">
+                    <div class="card_image" style="
+                          background-image: url(https://play-lh.googleusercontent.com/B4Tcwa6D-jsAVX3-Uykaku02TCV23Xala5v_8qiHXz74stzy-0M-nyDSrBjD6rDThrLb=s180-rw);">
+                    </div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">Карта Слов: словарь-тезаурус русского языка<h5>
                   <h6 class="text-muted ml-1">КартаСлов.ру</h6>
@@ -172,11 +184,16 @@
                 </div>
               </div>
               <div class="card">
-                <a href="https://play.google.com/store/apps/details?id=me.mycake&hl=ru&gl=US">
-                  <div class="card_image" style="
-                        background-image: url(https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/64/a8/a7/64a8a7de-f1f0-d961-d06c-f6b2f3b22857/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1024x0w.png);
-                      "></div>
-                </a>
+                <div class="card_head">
+                  <a href="https://play.google.com/store/apps/details?id=me.mycake&hl=ru&gl=US">
+                    <div class="card_image" style="
+                          background-image: url(https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/64/a8/a7/64a8a7de-f1f0-d961-d06c-f6b2f3b22857/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1024x0w.png);">
+                    </div>
+                  </a>
+                  <svg class="add-wishlist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+                  </svg>
+                </div>
                 <div class="card_info">
                   <h5 class="card-title mt-1 ml-1 d-flex">Cake: English Everyday</h5>
                   <h6 class="text-muted ml-1">Cake Corp.</h6>
