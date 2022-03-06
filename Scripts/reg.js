@@ -1,8 +1,16 @@
 const form = document.querySelector("form");
+
+const form_input_row_icon = document.querySelectorAll(".form_input_row-icon");
+
 let username = form.elements.namedItem("username");
+
 let email = form.elements.namedItem("email");
+
 let password = form.elements.namedItem("password");
+
 let repeatPass = form.elements.namedItem("repeatPassword");
+
+let passVisibilityToggle = document.getElementById("passVisibility");
 
 function addMultipleEventListener(element, events, handler) {
   events
@@ -24,7 +32,7 @@ function addMultipleEventListeners(elements, events, handler) {
 
 addMultipleEventListeners(
   "username email password repeatPassword",
-  "focus blur",
+  "focus blur keyup",
   validate
 );
 
@@ -191,32 +199,18 @@ function register() {
   }
   return false;
 }
-// form.addEventListener("submit", validate);
-// $(document).ready(function () {
-//     get all child elements of form
-//     const formChildren = $("form").children();
-//      console.log(formChildren);
-//   to add a validation alert block to child element of form
-//     let addValidationAlert = $("<div>").addClass("validation_alert_block");
-//     $("input").on("focusin focusout propertychange", function () {
-//       if ($("input").val() === "") {
-//         $(this).css("border-color", "red");
-//       } else {
-//         $(this).css("border-color", "green");
-//         $("div").remove(".validation_alert_block");
-//       }
-//     });
-//     $('input[name="username"]').on("focusout input", function () {
-//       if ($(this).val() !== "") {
-//         $(this).css("border-color", "green");
-//       }
-//       $("div").remove(".validation_alert_block");
-//     });
-//   validation alert block
-//   let validationAlertBlock = $(".validation_alert_block");
-//     $(".validation_alert_block").css({
-//       border: "1px solid red",
-//       borderRadius: "var(--input_border_radius)",
-//       padding: "4px",
-//     });
-// });
+
+passVisibilityToggle.addEventListener("click", function () {
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  repeatPass.setAttribute("type", type);
+
+  if (passVisibilityToggle.classList.contains("fa-eye-slash")) {
+    passVisibilityToggle.classList.remove("fa-eye-slash");
+    passVisibilityToggle.classList.add("fa-eye");
+  } else {
+    passVisibilityToggle.classList.remove("fa-eye");
+    passVisibilityToggle.classList.add("fa-eye-slash");
+  }
+});

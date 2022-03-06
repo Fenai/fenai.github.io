@@ -89,6 +89,17 @@ header {
 	border-radius: var(--input_border_radius);
 }
 
+.form_input_row-icon {
+	position:relative;
+	display:grid
+}
+
+#passVisibility {
+	position: absolute;
+	right: 1rem;
+	top: 12.5px;
+	color: #7e7e7e;
+}
 .buttons {
 	display: flex;
 	margin-top: 20px;

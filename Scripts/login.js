@@ -1,7 +1,10 @@
 const form = document.querySelector("form");
+
 let email = form.elements.namedItem("email");
+
 let password = form.elements.namedItem("password");
 
+let passVisibilityToggle = document.getElementById("passVisibility");
 // get all data from localStorage
 let accounts = [];
 accounts = JSON.parse(localStorage.getItem("accounts"));
@@ -128,3 +131,17 @@ function check() {
     return false;
   }
 }
+
+passVisibilityToggle.addEventListener("click", function () {
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+
+  if (passVisibilityToggle.classList.contains("fa-eye-slash")) {
+    passVisibilityToggle.classList.remove("fa-eye-slash");
+    passVisibilityToggle.classList.add("fa-eye");
+  } else {
+    passVisibilityToggle.classList.remove("fa-eye");
+    passVisibilityToggle.classList.add("fa-eye-slash");
+  }
+});

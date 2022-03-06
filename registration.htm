@@ -9,6 +9,7 @@
 	<title>Register</title>
 	<link rel="stylesheet" type="text/css" href="Styles/registration.css">
 	<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2971/2971416.png">
+	<script defer src="https://kit.fontawesome.com/38606480b3.js" crossorigin="anonymous"></script>
 	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script defer src="Scripts/reg.js"></script>
 </head>
@@ -35,11 +36,16 @@
 					</div>
 					<div class="form_input_row">
 						<label>Password</label>
-						<input class="form_input" type="password" name="password">
+						<div class="form_input_row-icon">
+							<input class="form_input" type="password" name="password">
+						</div>
 					</div>
 					<div class="form_input_row">
 						<label>Repeat password</label>
-						<input class="form_input" type="password" name="repeatPassword">
+						<div class="form_input_row-icon">
+							<input class="form_input" type="password" name="repeatPassword">
+							<i id="passVisibility" class="fa-solid fa-eye-slash passVisibility"></i>
+						</div>
 					</div>
 					<div class="buttons">
 						<button class="button" href="index.htm" name="regButton">Create account</button>
