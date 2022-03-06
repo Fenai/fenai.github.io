@@ -27,7 +27,7 @@ function addMultipleEventListeners(elements, events, handler) {
     );
 }
 
-addMultipleEventListeners("email password", "focus blur", validate);
+addMultipleEventListeners("email password", "focus blur keyup", validate);
 
 function checkEmailAndPassword(uEmail, uPassword) {
   if (accounts != null) {
