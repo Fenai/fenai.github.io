@@ -1,4 +1,6 @@
 const addToWishlistButtons = $(".add-wishlist");
+const cardLinks = $(".card_link");
+const checkedIcon = '<i class="fa-solid fa-circle-check wishlisted"></i>';
 const emptyBox = $("#empty-box");
 
 let user_email,
@@ -7,7 +9,8 @@ let user_email,
   cardBgImageUrl,
   cardTitle,
   cardDevelopers,
-  cardPlatform;
+  cardPlatform,
+  cardHead;
 let wishlistArr = [];
 let currentUser = [];
 
@@ -164,3 +167,16 @@ removeFromWishlist.click(function () {
 
   location.reload();
 });
+
+for (let i = 0; i < cardLinks.length; i++) {
+  for (let j = 0; j < wishlistArr.length; j++) {
+    if (
+      wishlistArr[j]["itemHref"] == cardLinks[i] &&
+      wishlistArr[j]["user_email"] == user_email
+    ) {
+      cardHead = cardLinks[i].parentNode;
+      cardHead.children[1].remove();
+      cardHead.append($.parseHTML(checkedIcon)[0]);
+    }
+  }
+}

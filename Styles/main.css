@@ -204,10 +204,10 @@ header {
   background-size: cover;
 }
 
-.add-wishlist {
+.add-wishlist, .wishlisted {
   transition: opacity 250ms ease-in-out 0s;
   opacity: 0;
-  width: 1.7rem;
+  /* width: 1.7rem; */
   position: absolute;
   /* display: inline-flex;
   justify-content: center; */
@@ -215,9 +215,12 @@ header {
   padding: 2px;
   top: 5px;
   right: 5px;
-  color: #fff;
   background-color: #fff;
   border-radius: 50%;
+}
+
+.wishlisted {
+  opacity: 1;
 }
 
 .card_info {
@@ -395,6 +398,15 @@ a.btn img {
   min-width: 240px;
 }
 
+.nav-link {
+  padding: 0.325rem 1rem!important;
+  color: #000000!important;
+}
+
+.nav-link:hover {
+  color: #fff!important;
+}
+
 /* for netbooks  */
 @media screen and (min-width: 1024px) and (max-width: 1200px){
   .main_browse {
@@ -419,15 +431,6 @@ a.btn img {
 
   .offcanvas {
     width: 350px!important;
-  }
-
-  .nav-link {
-    padding: 0.325rem 1rem!important;
-    color: #000000!important;
-  }
-
-  .nav-link:hover {
-    color: #fff!important;
   }
 
   #offcanvas-user_profile {
