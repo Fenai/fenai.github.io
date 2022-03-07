@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MobApps - website with good and useful apps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2971/2971416.png"/>
+  <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+  <script defer src="https://kit.fontawesome.com/3e37c3165c.js" crossorigin="anonymous"></script>
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script defer src="Scripts/user.js"></script>
+  <script defer src="Scripts/main.js"></script>
+  <script defer src="Scripts/addComment.js"></script>
+</head>
+<body>
+  <nav id="navbar" class="navbar navbar-light">
+    <div id="header-logo" class="header-width" style="display: flex">
+      <!-- Sidebar start -->
+      <div id="sidebar" style="display: flex">
+        <a id="sidebar_button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <img src="SVG/bar.svg" />
+        </a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+              <a style="color: black; font-weight: bold" href="index.htm" class="text-decoration-none">MobApps</a>
+            </h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <hr class="header-devider" />
+          <div id="auth">
+            <a class="nav_bar_button" href="registration.htm">Register</a>
+            <a class="nav_bar_button" href="login.htm">Log in</a>
+          </div>
+          <div id="offcanvas-body" class="d-flex flex-column offcanvas-body">
+            <ul class="navbar-nav mb-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.htm">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Platform</a>
+                <ul class="dropdown-menu not_ready" aria-labelledby="navbarDropdownMenuLink">
+                  <li>
+                    <a class="dropdown-item group_name" href="#">
+                      <i class="fa fa-windows fa-s"></i>
+                      Windows
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="#">
+                      <i class="fa fa-apple fa-s"></i>
+                      macOS
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="#">
+                      <i class="fa fa-linux fa-s"></i>
+                      Linux
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="#">
+                      <i class="fa fa-android fa-s"></i>
+                      Android
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="#">
+                      <i class="fa fa-apple fa-s"></i>
+                      iOS
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Genre
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li>
+                    <a class="dropdown-item group_name" href="games.htm">
+                      <i class="fa fa-gamepad fa-s"></i>
+                      Games
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="photo.htm">
+                      <i class="fa fa-camera fa-s"></i>
+                      Photo
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="language.htm">
+                      <i class="fa fa-globe fa-s"></i>
+                      Language apps
+                      </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="social.htm">
+                      <i class="fa fa-users fa-s"></i>
+                      Social apps
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item group_name" href="time.htm">
+                      <i class="fa fa-calendar-check fa-s"></i>
+                      Time-management
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <button class="group_btn mt-4">
+                <a style="color: black" href="comment.htm" class="text-decoration-none">Comments & Suggestions</a>
+              </button>
+            </ul>
+            <div id="offcanvas-user_profile" class="dropdown dropup">
+              <a href="#"  class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user rounded-circle me-2" aria-hidden="true" style="border-radius: 4px;background: black;padding: 5px;color: rgb(255, 194, 82);"></i>
+                <strong id="offcanvas-user_name">Someone</strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar close -->
+      <a id="logo" class="navbar-brand nav-link px-2" href="index.htm" style="margin: 0.5rem 0; margin-right: 0.5rem" href="index.htm"><b>MobApps</b></a>
+    </div>
+    <div class="search-width">
+      <form class="form-inline">
+        <input class="form-control w-100" style="background-color: #d9d9d969" type="text" name="" placeholder="Search for apps"/>
+      </form>
+    </div>
+    <!-- user -->
+    <div id="user_profile" class="dropdown">
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-user rounded-circle me-2" aria-hidden="true" style="border-radius: 4px;background: black;padding: 5px;color: rgb(255, 194, 82);"></i>
+        <strong id="user_name">Someone</strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="dropdownUser2">
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="wishlist.htm">Wishlist</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+      </ul>
+    </div>
+    <!-- login -->
+    <div id="navbar-auth" class="d-flex">
+      <a class="nav_bar_button" href="login.htm">Log in</a>
+      <a class="nav_bar_button" href="registration.htm">Register</a>
+    </div>
+  </nav>
+  <hr style="margin: 1px" />
+  <main>
+    <div class="main">
+      <div class="d-flex">
+        <!-- Left column -->
+        <div id="left-column" class="pl-4">
+          <div class="text-uppercase pt-3">
+            <p class="font-weight-bold">
+              <a style="color: black; font-weight: bold" href="" class="text-decoration-none">filters</a>
+            </p>
+          </div>
+          <div class="m-0 not_ready">
+            <button class="group_btn">Platform</button>
+            <a class="group_name" href=""><i class="fa fa-windows fa-s"></i> Windows</a>
+            <a class="group_name" href=""><i class="fa fa-apple fa-s"></i> macOS</a>
+            <a class="group_name" href=""><i class="fa fa-linux fa-s"></i> Linux</a>
+            <a class="group_name" href=""><i class="fa fa-android fa-s"></i> Android</a>
+            <a class="group_name" href=""><i class="fa fa-apple fa-s"></i> iOS</a>
+          </div>
+          <div class="m-0">
+            <button class="group_btn">
+              <a style="color: black" href="index.htm" class="text-decoration-none">Genre</a>
+            </button>
+            <a class="group_name" href="games.htm">
+              <i class="fa fa-gamepad fa-s"></i>
+              Games
+            </a>
+            <a class="group_name" href="photo.htm">
+              <i class="fa fa-camera fa-s"></i>
+              Photo</a>
+            <a class="group_name" href="language.htm">
+              <i class="fa fa-globe fa-s"></i>
+              Language apps
+            </a>
+            <a class="group_name" href="social.htm">
+              <i class="fa fa-users fa-s"> </i>
+              Social apps
+            </a>
+            <a class="group_name" href="time.htm">
+              <i class="fa fa-calendar-check fa-s"></i>
+              Time-management
+            </a>
+          </div>
+          <br />
+          <div class="m-0">
+            <button class="group_btn">
+              <a style="color: black" href="comment.htm" class="text-decoration-none">Comments & Suggestions</a>
+            </button>
+          </div>
+        </div>
+        <section class="w-100 bg-white px-3">
+          <div class="rc_header" style="display: none">
+            <div class="rc_sort_options_box">
+              <ul class="sorts pt-3 pl-0 d-flex">
+                <li>Sort by:</li>
+                <li><a class="active" href="">Popular</a></li>
+                <li><a class="active" href="">New</a></li>
+                <li><a class="active" href="">Top sellers</a></li>
+                <li><a class="active" href="">Top rated</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="comment-container">
+            <h4 style="text-align: center; margin-bottom: 15px;">Leave Us a Comment</h4>
+              <textarea id="usertext" name="txt" placeholder="Add Your Comment" rows="1" oninput="auto_grow(this)"></textarea>
+            <div class="btns">
+              <button class="comment" id="buttn">Comment</button>
+              <input class="cancel" id="buttn" type="button" value="delete" onclick="eraseText();">
+            </div>  
+          </div>
+          <div class="container" style="border: none;" id="blockss">
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+</html>

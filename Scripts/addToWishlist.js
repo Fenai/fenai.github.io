@@ -1,4 +1,6 @@
 const addToWishlistButtons = $(".add-wishlist");
+const emptyBox = $("#empty-box");
+
 let user_email,
   wishlist,
   cardHref,
@@ -95,6 +97,9 @@ addToWishlistButtons.click(function () {
 if (wishlistArr.length > 0) {
   for (let i = 0; i < wishlistArr.length; i++) {
     if (user_email === wishlistArr[i]["user_email"]) {
+      if (emptyBox != null) {
+        emptyBox.remove();
+      }
       wishlist_ul.append(
         '<li class="wishlist-li"> ' +
           '<div class="wishlist-card"> ' +
